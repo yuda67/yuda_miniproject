@@ -17,12 +17,5 @@ melihat riwayat transaksi menambah/menarik tabungan
 1.  login/regist akun
 2.  masukan tabungan sesuai nominal yang dimana data login dari id dan nama akun tadi tersimpan di suatu variabel
     yang nanti akan ditambahkan ke data transaksi dan data tabungan user tersebut
-3.  menarik tabungan dengan pilih mau berapa nominalnya 
-4.  tampilan history transaksi dari yang terbaru, terbesar/terkecil
-6.  tampilan total tabungan yang di punya sekarang
-7.  rata rata jumlah uang yang di tabung selama ini
-8.  menampilkan jumlah total uang yang sudah di tarik
-// sisi admin
-1.  menampilkan seluruh daftar nasabah tabungan
-2.  menampilkan seluruh transaksi dari nasabah
-3.  menghapus/mengsuspend nasabah
+
+# masih dalam pengembangan

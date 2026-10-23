@@ -9,7 +9,8 @@ import { loadTransactionsFromFile,
     lihatTotalSaldo,
     tarikSaldo, 
     lihatRiwayatTransaksiPenambahan,
-    lihatRiwayatTransaksiPenarikan } from "./function/transactionFunction.js";
+    lihatRiwayatTransaksiPenarikan,
+    lihatRataRata } from "./function/transactionFunction.js";
 
 // Load data saat awal
 loadUsersFromFile();
@@ -20,9 +21,17 @@ const rl = readline.createInterface({
     output: process.stdout,
 });
 
-async function registMenu() {
-    await setTimeout(1000);
-    rl.question("\nApakah sudah memiliki akun? (y/n/exit): ", (answer) => {
+function registMenu() {
+    rl.question(`
+=====================================
+selamat datang di tabungan masa depan
+=====================================
+apakah anda sudah memiliki akun?
+y : sudah punya akun
+n : belum punya akun
+exit : keluar dari program
+=====================================
+Jawaban:`, (answer) => {
         if (answer.toLowerCase() === "y") {
             console.log("Silakan login.");
             rl.question("Masukkan username: ", (username) => {
@@ -114,7 +123,9 @@ function loginMenu(username, password) {
                 lihatRiwayatTransaksiPenarikan(username);
                 rollbackMenuLogin(username, password); 
                 break;
-            case "6": 
+            case "6":
+                lihatRataRata(username);
+                rollbackMenuLogin(username, password); 
                 break;
             case "7":
                 // ubah password

@@ -44,7 +44,7 @@ export function tambahSaldo(username, nominal, description = "Penambahan saldo")
     }
     createTransaction(username, nominal, description);
     user.saldoTabungan += Number(nominal);
-    return console.log(`Saldo sebesar ${nominal} berhasil ditambahkan`);
+    return console.log(`Saldo sebesar Rp.${nominal} berhasil ditambahkan`);
 }
 
 // membuat riwayat transaksi baru
@@ -68,7 +68,7 @@ export function lihatTotalSaldo(username) {
         console.log("User tidak ditemukan.");
         return 0;
     }
-    return console.log(`Total saldo ${username}: ${user.saldoTabungan}`);
+    return console.log(`Total saldo ${username}: Rp.${user.saldoTabungan}`);
 }
 
 // tarik saldo 
@@ -89,7 +89,7 @@ export function tarikSaldo(username, nominal, description = "Pengambilan saldo")
     }
     createTransaction(username, -nominal, description);
     user.saldoTabungan -= Number(nominal);
-    return console.log(`Saldo sebesar ${nominal} berhasil diambil`);
+    return console.log(`Saldo sebesar Rp.${nominal} berhasil diambil`);
 }
 
 // lihat riwayat transaksi
@@ -113,7 +113,7 @@ export function lihatRiwayatTransaksiPenambahan(username) {
     });
     let totalDeposit = userTransactions.reduce((total, transaction) => total + transaction.total_amount, 0);
     console.table(table);
-    console.log(`Total deposit: ${totalDeposit}`);
+    console.log(`Total deposit: Rp.${totalDeposit}`);
 }
 
 /* perbedaan .filter() dan .find() adalah:
@@ -142,5 +142,20 @@ export function lihatRiwayatTransaksiPenarikan(username) {
     });
     let totalPenarikan = userTransactions.reduce((total, transaction) => total + transaction.total_amount, 0);
     console.table(table);
-    console.log(`Total penarikan: ${totalPenarikan}`);
+    console.log(`Total penarikan: Rp.${totalPenarikan}`);
+}
+
+
+export function lihatRataRata(username) {
+    const userTransactions = transactions.filter((transaction) => {
+        return transaction.username === username 
+        && transaction.total_amount > 0;
+    });
+    if (userTransactions.length === 0) {
+        console.log("Tidak ada riwayat transaksi untuk user ini.");
+        return 0;
+    }
+    let totalAmount = userTransactions.reduce((total, transaction) => total + transaction.total_amount, 0);
+    let average = totalAmount / userTransactions.length;
+    console.log(`Rata-rata transaksi: ${username}: Rp.${average}`);
 }
