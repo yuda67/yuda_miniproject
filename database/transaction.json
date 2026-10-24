@@ -33,5 +33,26 @@
     "transaction_date": "23/10/2026, 22.02.52",
     "total_amount": 30000,
     "description": ""
+  },
+  {
+    "id_transaction": "17928472646758294",
+    "username": "virgi",
+    "transaction_date": "24/10/2026, 20.07.44",
+    "total_amount": -20000,
+    "description": "mau jajan"
+  },
+  {
+    "id_transaction": "17928485261276284",
+    "username": "zalfaa",
+    "transaction_date": "24/10/2026, 20.28.46",
+    "total_amount": 50000,
+    "description": "thr"
+  },
+  {
+    "id_transaction": "17928486111656937",
+    "username": "zalfaa",
+    "transaction_date": "24/10/2026, 20.30.11",
+    "total_amount": 50000,
+    "description": "uang nemu"
   }
 ]

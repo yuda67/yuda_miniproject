@@ -2,7 +2,7 @@
   {
     "username": "virgi",
     "password": "$2b$10$Kx9sUdPcCrpthc96GYsB.O2qfi2ikVlg9We7xiJoDeNFHGN2KcHLe",
-    "saldoTabungan": 140000,
+    "saldoTabungan": 120000,
     "targetTabungan": 100000
   },
   {
@@ -10,5 +10,11 @@
     "password": "$2b$10$Uzqww05UP20KoaWn4psod.o6zdNQRD.cfwIMXpUHn6t2maMMvm3nm",
     "targetTabungan": 60000,
     "saldoTabungan": 0
+  },
+  {
+    "username": "zalfaa",
+    "password": "$2b$10$wdLVH9fWpUkAdKP9unGDte1vnuLpOebsamFYzewBj62IuBexXx2Ne",
+    "targetTabungan": 70000,
+    "saldoTabungan": 100000
   }
 ]

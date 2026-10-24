@@ -15,7 +15,7 @@ const userFilePath = join(
 export function loadUsersFromFile() {
     if (fs.existsSync(userFilePath)) {
         const data = fs.readFileSync(userFilePath, "utf8");
-        const loadedUsers = JSON.parse(data);
+        const loadedUsers = JSON.parse(data); // perlu di reasoning lagi
         if (!Array.isArray(loadedUsers)) {
             throw new TypeError("Data pengguna harus berupa array.");
         }
@@ -29,7 +29,7 @@ export function loadUsersFromFile() {
 // Save data ke file JSON  
 export function saveUsersToFile() {
     fs.writeFileSync(userFilePath, JSON.stringify (users, null, 2));
-}
+} // reasoning
 
 //create user
 export function createUser(newUser) {

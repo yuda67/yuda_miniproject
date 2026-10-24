@@ -45,7 +45,7 @@ export function tambahSaldo(username, nominal, description) {
     createTransaction(username, nominal, description);
     user.saldoTabungan += Number(nominal);
     return console.log(`Saldo sebesar Rp.${nominal} berhasil ditambahkan`);
-}
+} 
 
 // membuat riwayat transaksi baru
 function createTransaction(username, total_amount, description) {
@@ -129,11 +129,7 @@ export function lihatRiwayatTransaksiPenambahan(username) {
     console.log(`Total deposit: Rp.${totalDeposit}`);
 }
 
-/* perbedaan .filter() dan .find() adalah:
-- .filter() mengembalikan "array" baru yang berisi semua elemen yang memenuhi kondisi tertentu. Jika tidak ada elemen yang memenuhi kondisi, maka akan mengembalikan array kosong.
-- .find() mengembalikan "elemen" pertama yang memenuhi kondisi tertentu. Jika tidak ada elemen yang memenuhi kondisi, maka akan mengembalikan undefined.  
-makanya kalo ngubah atau nambahin suatu data itu pake .find() , kalo filter itu untuk nampilin data, kelebihan pake filter disini juga karna dia ngembaliin array maka tampilan di comand linenya itu bisa dalam bentuk tabel.
-*/
+
 
 export function lihatRiwayatTransaksiPenarikan(username) {
     const userTransactions = transactions.filter((transaction) => {

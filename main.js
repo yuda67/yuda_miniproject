@@ -2,7 +2,10 @@ import readline from "readline";
 import { loadUsersFromFile, 
     saveUsersToFile, 
     createUser,
-    loginUser, changePassword, deleteUser, ubahTargetTabungan } from "./function/userFunction.js";
+    loginUser, 
+    changePassword, 
+    deleteUser, 
+    ubahTargetTabungan} from "./function/userFunction.js";
 import { loadTransactionsFromFile, 
     tambahSaldo, 
     lihatTotalSaldo,
@@ -76,7 +79,7 @@ function showLoginMenu(username) {
   SISTEM tabungan masa depan
 ==============================
 1. tambah saldo
-2. lihat total saldo dan target tabungan 
+2. lihat total saldo dan target tabungan
 3. tarik saldo
 4. lihat riwayat transaksi deposit
 5. lihat riwayat transaksi penarikan

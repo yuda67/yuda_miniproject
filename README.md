@@ -1,6 +1,6 @@
 
 
-# PROGRAM Tabungan
+# PROGRAM Sistem tabungan
 program tabungan ini adalah membuat wadah untuk seseorang yang ingin menabung dan mencatat setiap tabungan yang ia berikan seperti nilai uang yang sudah ia keluarkan dan kapan ia mulai menabung. di sini juga memungkinkan kamu mentracking seberapa progress tabungan kamu dengan target tabungan yang sudah ada. disini karena sistemnya tabungan maka kita menyediakan fitur register,login, dan logout, di sini juga saya menggunakan dependency bcrypt untuk password
 
 # fitur
