@@ -34,13 +34,13 @@ mengubah target tabungan
     }
 
 ## format transaksi
-{
-    id_transaction: "17927165414767815",
-    username: "virgi",
-    transaction_date: "23/10/2026, 07.49.01",
-    total_amount: 70000,
-    description: "uang lembur"
-}
+    {
+        id_transaction: "17927165414767815",
+        username: "virgi",
+        transaction_date: "23/10/2026, 07.49.01",
+        total_amount: 70000,
+        description: "uang lembur"
+    }
 
 # struktur project
 - `.gitignore`        -> untuk mengabaikan node_modules karna saya pakai bcrypt dan otomatis menambahkan node_modules di dalam folder function, maka dari itu juga perlu npm install bcrypt untuk menjalankanya
