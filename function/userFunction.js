@@ -3,6 +3,7 @@ import {users} from "../database/users.js";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import { hashPassword, comparePassword } from "./helper.js";
+import { hapusTransaksi} from "./transactionFunction.js";
 
 const userFilePath = join(
     dirname(fileURLToPath(import.meta.url)),
@@ -33,8 +34,8 @@ export function saveUsersToFile() {
 //create user
 export function createUser(newUser) {
     // Validasi data
-    if (!newUser.username || !newUser.password) {
-        console.log("Semua field wajib diisi!");
+    if (!newUser.username || !newUser.password || !newUser.targetTabungan) {
+        console.log("Register akun gagal, Semua field wajib diisi!");
         return;
     }
     // Cek apakah username sudah ada (pake method .find())
@@ -44,8 +45,6 @@ export function createUser(newUser) {
     }
 
     newUser.password = hashPassword(newUser.password);
-
-    newUser.status = "active"; // Set status default
     newUser.saldoTabungan = 0; // Set saldo default
     users.push(newUser);
     console.log("Pengguna berhasil dibuat. silahkan login dengan username dan password yang telah dibuat.");
@@ -85,4 +84,21 @@ export function loginUser(username, password) {
     return 1;
 }
 
+export function deleteUser(username) {
+    const user = users.find((users) => users.username === username);
+    if (!user) {
+        console.log("User tidak ditemukan.");
+        return 0;
+    }
+    if (user.saldoTabungan !== 0) {
+        console.log("Saldo tabungan harus 0 untuk menghapus akun.");
+        return 0;
+    }
+    
+    const userIndex = users.find((users) => users.username === username);
+    users.splice(users.indexOf(userIndex), 1);
+    console.log(`Akun ${username} berhasil dihapus.`);
+    saveUsersToFile();
+    hapusTransaksi(username);
+}
 

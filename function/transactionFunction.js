@@ -31,7 +31,7 @@ function saveTransactionsToFile() {
 }
 
 // tambah saldo
-export function tambahSaldo(username, nominal, description = "Penambahan saldo") {
+export function tambahSaldo(username, nominal, description) {
     nominal = Number(nominal);
     const user = users.find((users) => users.username === username);
     if (!user) {
@@ -68,7 +68,20 @@ export function lihatTotalSaldo(username) {
         console.log("User tidak ditemukan.");
         return 0;
     }
-    return console.log(`Total saldo ${username}: Rp.${user.saldoTabungan}`);
+    const targetTabungan = user.targetTabungan || 0; // Ambil target tabungan, jika tidak ada set ke 0
+    if (targetTabungan > user.saldoTabungan) {
+        const progress = ((user.saldoTabungan / targetTabungan) * 100).toFixed(2);
+        console.log(`Total saldo ${username}: Rp.${user.saldoTabungan}`);
+        console.log(`Target tabungan: Rp.${targetTabungan}`);
+        console.log(`Progress tabungan: ${progress}%`);
+    }else if (targetTabungan <= user.saldoTabungan) {
+        console.log(`Selamat! Anda telah mencapai target tabungan sebelumnya yaitu sebesar Rp.${targetTabungan}`);
+        console.log(`Total saldo ${username}: Rp.${user.saldoTabungan}`);
+    }
+    else {
+        console.log(`Total saldo ${username}: Rp.${user.saldoTabungan}`);
+        console.log(`maaf kamu tidak punya target tabungan)`);
+    }
 }
 
 // tarik saldo 
@@ -158,4 +171,16 @@ export function lihatRataRata(username) {
     let totalAmount = userTransactions.reduce((total, transaction) => total + transaction.total_amount, 0);
     let average = totalAmount / userTransactions.length;
     console.log(`Rata-rata transaksi: ${username}: Rp.${average}`);
+}
+
+export function hapusTransaksi(username) {
+    const userTransactions = transactions.filter((transaction) => transaction.username === username);
+    if (userTransactions.length === 0) {
+        console.log("Tidak ada riwayat transaksi untuk user ini.");
+        return 0;
+    }
+    const remainingTransactions = transactions.filter((transaction) => transaction.username !== username);
+    transactions.splice(0, transactions.length, ...remainingTransactions);
+    saveTransactionsToFile();
+    console.log(`Semua riwayat transaksi untuk user ${username} telah dihapus.`);
 }

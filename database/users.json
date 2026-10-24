@@ -2,7 +2,13 @@
   {
     "username": "virgi",
     "password": "$2b$10$Kx9sUdPcCrpthc96GYsB.O2qfi2ikVlg9We7xiJoDeNFHGN2KcHLe",
-    "status": "active",
-    "saldoTabungan": 140000
+    "saldoTabungan": 140000,
+    "targetTabungan": 1000000
+  },
+  {
+    "username": "arya",
+    "password": "$2b$10$Uzqww05UP20KoaWn4psod.o6zdNQRD.cfwIMXpUHn6t2maMMvm3nm",
+    "targetTabungan": 60000,
+    "saldoTabungan": 0
   }
 ]

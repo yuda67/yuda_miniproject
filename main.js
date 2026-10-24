@@ -1,16 +1,14 @@
 import readline from "readline";
-import {setTimeout} from "timers/promises";
 import { loadUsersFromFile, 
     saveUsersToFile, 
     createUser,
-    loginUser, changePassword } from "./function/userFunction.js";
+    loginUser, changePassword, deleteUser } from "./function/userFunction.js";
 import { loadTransactionsFromFile, 
     tambahSaldo, 
     lihatTotalSaldo,
     tarikSaldo, 
     lihatRiwayatTransaksiPenambahan,
-    lihatRiwayatTransaksiPenarikan,
-    lihatRataRata } from "./function/transactionFunction.js";
+    lihatRiwayatTransaksiPenarikan} from "./function/transactionFunction.js";
 
 // Load data saat awal
 loadUsersFromFile();
@@ -50,14 +48,17 @@ Jawaban:`, (answer) => {
             console.log("Silakan registrasi.");
             rl.question("Masukkan username: ", (username) => {
                 rl.question("masukan password: ", (password) => {
-                    createUser({
+                    rl.question("masukan target tabungan: ", (targetTabungan) => {
+                        createUser({
                         username,
                         password,
+                        targetTabungan: Number(targetTabungan)
                     });
                     saveUsersToFile();
                     registMenu(); 
                 });
             });
+        });
         } else if(answer.toLowerCase() === "exit") {
             console.log("berhasil keluar dari program.");
             rl.close();
@@ -72,14 +73,14 @@ Jawaban:`, (answer) => {
 function showLoginMenu(username) {
     console.log(`\nSelamat datang ${username}\ndi tabungan masa depan. Silakan pilih opsi:
 ==============================
-✈️  SISTEM tabungan masa depan
+  SISTEM tabungan masa depan
 ==============================
 1. tambah saldo
-2. lihat total saldo
+2. lihat total saldo dan target tabungan 
 3. tarik saldo
 4. lihat riwayat transaksi deposit
 5. lihat riwayat transaksi penarikan
-6. lihat rata rata deposit dan penarikan
+6. hapus akun [pastikan saldo tabungan sudah 0]
 7. ubah password
 0. Keluar
 ==============================
@@ -124,8 +125,12 @@ function loginMenu(username, password) {
                 rollbackMenuLogin(username, password); 
                 break;
             case "6":
-                lihatRataRata(username);
-                rollbackMenuLogin(username, password); 
+                rl.question("Apakah Anda yakin ingin menghapus akun? (y/n): ", (confirm) => {
+                    if (confirm.toLowerCase() === "y") {
+                        deleteUser(username);
+                    }
+                    rollbackMenuLogin(username, password); 
+                });
                 break;
             case "7":
                 // ubah password
@@ -152,7 +157,7 @@ function rollbackMenuLogin(username, password) {
         if (answer.toLowerCase() !== "") {
             return loginMenu(username, password); // Panggil kembali menu login setelah menambahkan saldo
         } else {
-            return rollbackMenuLogin(); // Panggil kembali rollbackMenu jika input kosong
+            return rollbackMenuLogin(username, password); // Panggil kembali rollbackMenu jika input kosong
         }
     });
 };
