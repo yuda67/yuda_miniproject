@@ -1,7 +1,7 @@
 
 
 # PROGRAM Tabungan
-program tabungan ini adalah membuat wadah untuk seseorang yang ingin menabung dan mencatat setiap tabungan yang ia berikan seperti nilai uang yang sudah ia keluarkan dan kapan ia mulai menabung. di sini juga memungkinkan kamu mentracking seberapa progress tabungan kamu dengan target tabungan yang sudah ada. disini karena sistemnya tabungan maka kita menyediakan fitur register,login, dan logout
+program tabungan ini adalah membuat wadah untuk seseorang yang ingin menabung dan mencatat setiap tabungan yang ia berikan seperti nilai uang yang sudah ia keluarkan dan kapan ia mulai menabung. di sini juga memungkinkan kamu mentracking seberapa progress tabungan kamu dengan target tabungan yang sudah ada. disini karena sistemnya tabungan maka kita menyediakan fitur register,login, dan logout, di sini juga saya menggunakan dependency bcrypt untuk password
 
 # fitur
 pembuatan akun 
@@ -21,7 +21,7 @@ mengubah target tabungan
 - Pastikan Node.js sudah terinstal.
 - Buka terminal dan arahkan ke folder proyek.
 - Ubah package.json agar menggunakan module.
-- ketik npm install di terminal untuk dependenci program
+- ketik npm install di terminal untuk dependency program
 - Jalankan program dengan : node main.js
 
 # format data 
