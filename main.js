@@ -2,7 +2,7 @@ import readline from "readline";
 import { loadUsersFromFile, 
     saveUsersToFile, 
     createUser,
-    loginUser, changePassword, deleteUser } from "./function/userFunction.js";
+    loginUser, changePassword, deleteUser, ubahTargetTabungan } from "./function/userFunction.js";
 import { loadTransactionsFromFile, 
     tambahSaldo, 
     lihatTotalSaldo,
@@ -82,6 +82,7 @@ function showLoginMenu(username) {
 5. lihat riwayat transaksi penarikan
 6. hapus akun [pastikan saldo tabungan sudah 0]
 7. ubah password
+8. mengubah target tabungan
 0. Keluar
 ==============================
 `);
@@ -138,6 +139,14 @@ function loginMenu(username, password) {
                     changePassword(username, password, newPassword);
                     saveUsersToFile();
                     console.log("Password berhasil diubah.");
+                    rollbackMenuLogin(username, password); 
+                });
+                break;
+            case "8":
+                // ubah target tabungan
+                rl.question("masukan target tabungan baru: ", (newTarget) => {
+                    ubahTargetTabungan(username, newTarget);
+                    saveUsersToFile();
                     rollbackMenuLogin(username, password); 
                 });
                 break;

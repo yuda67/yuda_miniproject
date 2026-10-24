@@ -84,6 +84,16 @@ export function loginUser(username, password) {
     return 1;
 }
 
+export function ubahTargetTabungan(username, newTarget) {
+    const user = users.find(user => user.username === username);
+    if (!user) {
+        console.log("Username tidak ditemukan.");
+        return 0;
+    }
+    user.targetTabungan = Number(newTarget);
+    console.log("Target tabungan berhasil diubah.");
+}
+
 export function deleteUser(username) {
     const user = users.find((users) => users.username === username);
     if (!user) {

@@ -1,10 +1,9 @@
 export let transactions = [
 {
-    id_transaction: '0022344',
-    username: 'dummy',
-    transaction_date: '25/06/2024',
-    total_amount: 20000,
-    description: 'sisih dari uang jajan',
-    target: 1000000
+    id_transaction: "17927165414767815",
+    username: "virgi",
+    transaction_date: "23/10/2026, 07.49.01",
+    total_amount: 70000,
+    description: "uang lembur"
 }
 ]
