@@ -43,15 +43,15 @@ mengubah target tabungan
 }
 
 # struktur project
-- folder database
--- `transaction.js`   -> Berisi array data transaksi awal atau formatnya
--- `transaction.json` -> penyimpanan yang otomatis dibuat mengenai transaksi
--- `users.js`         -> Berisi array data user awal atau formatnya
--- `users.json`       -> penyimpanan yang otomatis dibuat mengenai data pengguna
+## folder database
+- `transaction.js`   -> Berisi array data transaksi awal atau formatnya
+- `transaction.json` -> penyimpanan yang otomatis dibuat mengenai transaksi
+- `users.js`         -> Berisi array data user awal atau formatnya
+- `users.json`       -> penyimpanan yang otomatis dibuat mengenai data pengguna
 - folder fucntion
--- `helper.js`        -> berisi fungsi pembantu yang akan dipakai di 2 fungsi utama
--- `transactionfungsion.js`   -> berisi fungsi dari proses Transaksi dan pembuatan riwayat transaksi
--- `userFunction.js`  -> berisi fungsi dari proses CRUD User
+- `helper.js`        -> berisi fungsi pembantu yang akan dipakai di 2 fungsi utama
+- `transactionfungsion.js`   -> berisi fungsi dari proses Transaksi dan pembuatan riwayat transaksi
+- `userFunction.js`  -> berisi fungsi dari proses CRUD User
 - `.gitignore`        -> untuk mengabaikan node_modules karna saya pakai bcrypt dan otomatis menambahkan node_modules di dalam folder function, maka dari itu juga perlu npm install bcrypt untuk menjalankanya
 - `main.js`           -> proses berjalanya program utama
 - `package-lock.json` -> memastikan versi dependency dan yang lainya sama sehingga program ini dapat berjalan sesuai
