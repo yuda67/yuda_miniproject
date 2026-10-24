@@ -43,12 +43,12 @@ mengubah target tabungan
 }
 
 # struktur project
-## folder database
+### folder database
 - `transaction.js`   -> Berisi array data transaksi awal atau formatnya
 - `transaction.json` -> penyimpanan yang otomatis dibuat mengenai transaksi
 - `users.js`         -> Berisi array data user awal atau formatnya
 - `users.json`       -> penyimpanan yang otomatis dibuat mengenai data pengguna
-- folder fucntion
+### folder fucntion
 - `helper.js`        -> berisi fungsi pembantu yang akan dipakai di 2 fungsi utama
 - `transactionfungsion.js`   -> berisi fungsi dari proses Transaksi dan pembuatan riwayat transaksi
 - `userFunction.js`  -> berisi fungsi dari proses CRUD User
